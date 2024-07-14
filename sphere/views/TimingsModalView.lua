@@ -114,8 +114,8 @@ return ModalImView(function(self, quit)
 	if imgui.TextButton("default timings", "soundsphere", 200, _h2) then
 		playContext.timings = table_util.deepcopy(_timings.soundsphere)
 	end
-	if imgui.TextButton("lr2 timings", "LR2", 100, _h2) then
-		playContext.timings = table_util.deepcopy(_timings.lr2)
+	if imgui.TextButton("tenki timings", "Tenki", 100, _h2) then
+		playContext.timings = table_util.deepcopy(_timings.tenki)
 	end
 	if imgui.TextButton("osuMania timings", "osu!mania OD" .. osuOD, 220, _h2) then
 		playContext.timings = table_util.deepcopy(_timings.osuMania(osuOD))

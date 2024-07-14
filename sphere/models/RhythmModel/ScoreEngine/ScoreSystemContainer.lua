@@ -13,6 +13,7 @@ local ScoreSystems = {
 	require("sphere.models.RhythmModel.ScoreEngine.EtternaScoring"),
 	require("sphere.models.RhythmModel.ScoreEngine.LunaticRaveScoring"),
 	require("sphere.models.RhythmModel.ScoreEngine.JudgementScoreSystem"),
+	require("sphere.models.RhythmModel.ScoreEngine.TenkiScoring"),
 }
 
 ---@class sphere.ScoreSystemContainer

@@ -36,11 +36,11 @@ local osuMania = require("sphere.models.RhythmModel.ScoreEngine.OsuManiaScoring"
 local osuLegacy = require("sphere.models.RhythmModel.ScoreEngine.OsuLegacyScoring")
 local etterna = require("sphere.models.RhythmModel.ScoreEngine.EtternaScoring")
 local quaver = require("sphere.models.RhythmModel.ScoreEngine.QuaverScoring")
-local lr2 = require("sphere.models.RhythmModel.ScoreEngine.LunaticRaveScoring")
+local tenki = require("sphere.models.RhythmModel.ScoreEngine.TenkiScoring")
 
 timings.quaver = quaver:getTimings()
 timings.etterna = etterna:getTimings()
-timings.lr2 = lr2:getTimings()
+timings.tenki = tenki:getTimings()
 
 local cachedOsuMania = {}
 
@@ -78,8 +78,8 @@ function timings.getName(t)
 	local s = ser(t)
 	if s == ser(timings.soundsphere) then
 		return "soundsphere"
-	elseif s == ser(timings.lr2) then
-		return "LR2"
+	elseif s == ser(timings.tenki) then
+		return "Tenki"
 	elseif s == ser(timings.quaver) then
 		return "Quaver"
 	end

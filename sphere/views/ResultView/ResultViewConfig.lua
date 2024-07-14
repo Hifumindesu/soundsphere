@@ -418,7 +418,12 @@ local function JudgementsAccuracy(self)
 
 	love.graphics.setColor(1, 1, 1, 1)
 	love.graphics.setFont(spherefonts.get("Noto Sans Mono", 32))
-	imgui.Label("j.acc", ("%3.2f%%"):format(judge.accuracy * 100), h)
+
+	if judge.accuracy > 1 then
+		imgui.Label("j.acc", ("%3.4f%%"):format(judge.accuracy * 100), h)
+	else
+		imgui.Label("j.acc", ("%3.2f%%"):format(judge.accuracy * 100), h)
+	end
 end
 
 ---@param self table

@@ -43,6 +43,7 @@ function ResultView:updateJudgements()
 		scoreSystems["osuLegacy"].metadata,
 		scoreSystems["etterna"].metadata,
 		scoreSystems["lr2"].metadata,
+		scoreSystems["tenki"].metadata,
 	}
 
 	self.judgements = {}
