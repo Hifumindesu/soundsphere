@@ -13,7 +13,7 @@ TenkiScoring.metadata = {
 
 local Judge = BaseJudge + {}
 
-Judge.orderedCounters = { "critical", "perfect", "great", "good", "okay" }
+Judge.orderedCounters = { "critical", "perfect", "great", "good", "bad" }
 
 ---@param windows table
 function Judge:new(windows)
@@ -26,21 +26,21 @@ function Judge:new(windows)
 		perfect = 0,
 		great = 0,
 		good = 0,
-		okay = 0,
+		bad = 0,
 		miss = 0,
 	}
 
 	self.weights = {
 		critical = 100,
 		perfect = 100,
-		great = 66.67,
-		good = 33.33,
-		okay = 16.67,
-		miss = 0,
+		great = 50,
+		good = 25,
+		bad = -50,
+		miss = -100,
 	}
 
-	self.earlyHitWindow = -self.windows.okay
-	self.lateHitWindow = self.windows.okay
+	self.earlyHitWindow = -self.windows.bad
+	self.lateHitWindow = self.windows.bad
 	self.earlyMissWindow = -self.windows.miss
 	self.lateMissWindow = self.windows.miss
 
@@ -60,9 +60,9 @@ function Judge:calculateAccuracy()
 
 	if ssRank >= 1 then
 		local ratio = (self.counters[self.orderedCounters[1]] / self.notes) * 0.01
-		accScore = (hitScore + ratio) / maxScore
+		accScore = (hitScore / maxScore) + ratio
 	else
-		local bonus = self.counters[self.orderedCounters[1]] * 1.67
+		local bonus = self.counters[self.orderedCounters[1]] * 1.25
 		accScore = (hitScore + bonus) / (maxScore + bonus)
 	end
 
@@ -93,11 +93,11 @@ function Judge:getTimings()
 end
 
 local stdWindows = {
-	critical = 0.025,
-	perfect = 0.050,
-	great = 0.075,
-	good = 0.100,
-	okay = 0.125,
+	critical = 0.020,
+	perfect = 0.040,
+	great = 0.060,
+	good = 0.080,
+	bad = 0.100,
 	miss = 0.150,
 }
 
