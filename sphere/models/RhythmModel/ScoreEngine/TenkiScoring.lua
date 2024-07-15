@@ -35,8 +35,8 @@ function Judge:new(windows)
 		perfect = 100,
 		great = 50,
 		good = 25,
-		bad = -50,
-		miss = -100,
+		bad = -25,
+		miss = -50,
 	}
 
 	self.earlyHitWindow = -self.windows.bad
